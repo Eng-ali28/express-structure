@@ -1,6 +1,5 @@
 import * as dotenv from 'dotenv'
 dotenv.config({path:'./config/.env'})
-import 'express-async-errors';
 
 import express , {Express} from 'express';
 import {Server} from "http"
