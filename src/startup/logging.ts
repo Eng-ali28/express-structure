@@ -35,10 +35,9 @@ const logger = winston.createLogger({
       }),
       new MongoDB({
         level: "error",
-        db: config.get<string>('DB_URI') + config.get<string>('DB_PORT') + config.get<string>('DB_NAME'),
-        options: { useNewUrlParser: true, useUnifiedTopology: true },
+        db:  config.get<string>('DB_URI') + config.get<string>('DB_PORT') + config.get<string>('DB_NAME'),
+        options: { useNewUrlParser: true, useUnifiedTopology: true  },
         collection: config.get("logging.mongodb_collection"),
-        capped: true,
       }),
       new winston.transports.Console({}),
     ],

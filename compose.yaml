@@ -12,19 +12,19 @@ services:
       - "./:/usr/src/app"
       - /usr/src/app/node_modules
     depends_on:
-      - db
+      - mongodb
       
-  db:
-    image: mongo
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
     restart: always
-    expose:
-      - 27018
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
     ports:
-      - "27018:27017"
+      - "27017:27017"
     volumes:
       - "db-data:/data/db"
-    env_file:
-      - ./config/.env
     
     
 volumes:

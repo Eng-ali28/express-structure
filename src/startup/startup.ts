@@ -28,6 +28,6 @@ export default function(app:Express){
     });
 
     app.get('/ping' , (req:Request , res : Response)=>{
-        return res.send("Healthy check")
-    })
+        return res.status(200).json({msg : "healthy check"})
+    });
 }
